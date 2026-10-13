@@ -1,0 +1,208 @@
+.resource-graph-panel {
+  --graph-topic: var(--global-theme-color);
+  --graph-tag: #187d83;
+}
+
+html[data-theme="dark"] .resource-graph-panel {
+  --graph-tag: #78ccd0;
+}
+
+.resource-graph-toolbar,
+.resource-graph-legend,
+.resource-graph-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+}
+
+.resource-graph-toolbar {
+  justify-content: space-between;
+  margin: 0.75rem 0;
+}
+
+.resource-graph-legend {
+  font-size: 0.8rem;
+}
+
+.resource-graph-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.resource-graph-legend i {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--global-text-color);
+  border-radius: 0.15rem;
+}
+
+.resource-graph-legend .graph-key-topic {
+  background: var(--graph-topic);
+  border-color: var(--graph-topic);
+  border-radius: 50%;
+}
+
+.resource-graph-legend .graph-key-tag {
+  border-color: var(--graph-tag);
+  border-radius: 50%;
+}
+
+.resource-graph-legend .graph-key-subtopic {
+  border-color: var(--graph-topic);
+  border-radius: 50%;
+}
+
+.resource-graph-legend .graph-key-parent {
+  width: 1.25rem;
+  height: 0;
+  border: 0;
+  border-top: 2px dashed var(--graph-topic);
+  border-radius: 0;
+}
+
+.resource-graph-actions {
+  gap: 0.4rem;
+}
+
+.resource-graph-actions label {
+  margin: 0 0.4rem 0 0;
+  font-size: 0.85rem;
+}
+
+.resource-graph-actions input {
+  accent-color: var(--graph-topic);
+}
+
+.resource-graph-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.resource-graph-hint {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.resource-graph-canvas {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  background: var(--global-bg-color);
+  touch-action: none;
+  cursor: grab;
+}
+
+.resource-graph-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.resource-graph-edge {
+  stroke: var(--global-text-color);
+  stroke-width: 1;
+  opacity: 0.35;
+  fill: none;
+}
+
+.resource-graph-edge[data-relation="parent"] {
+  stroke: var(--graph-topic);
+  stroke-width: 2;
+  stroke-dasharray: 5 3;
+  opacity: 0.85;
+}
+
+.resource-graph-arrow {
+  fill: var(--graph-topic);
+}
+
+.resource-graph-node {
+  cursor: pointer;
+}
+
+.resource-graph-node rect {
+  fill: var(--global-bg-color);
+  stroke: var(--global-divider-color);
+  stroke-width: 1.5;
+}
+
+.resource-graph-node[data-kind="topic"] rect {
+  fill: color-mix(in srgb, var(--graph-topic) 12%, var(--global-bg-color));
+  stroke: var(--graph-topic);
+  stroke-width: 2;
+}
+
+.resource-graph-node[data-kind="subtopic"] rect {
+  stroke: var(--graph-topic);
+}
+
+.resource-graph-node[data-kind="tag"] rect {
+  fill: color-mix(in srgb, var(--graph-tag) 7%, var(--global-bg-color));
+  stroke: var(--graph-tag);
+}
+
+.resource-graph-node text {
+  fill: var(--global-text-color);
+  font-family: inherit;
+  font-size: 12px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.resource-graph-node[data-kind="topic"] text,
+.resource-graph-node[data-kind="subtopic"] text {
+  font-weight: 600;
+}
+
+.resource-graph-node[aria-pressed="true"] rect,
+.resource-graph-node:focus-visible rect {
+  stroke: var(--graph-topic);
+  stroke-width: 3;
+}
+
+.resource-graph-node.is-muted {
+  opacity: 0.2;
+}
+
+.resource-graph-edge.is-muted {
+  opacity: 0.04;
+}
+
+.resource-graph-edge.is-highlighted {
+  opacity: 0.8;
+  stroke-width: 2;
+}
+
+.resource-graph-detail {
+  min-height: 7rem;
+  padding: 1rem 0;
+  overflow-wrap: anywhere;
+}
+
+.resource-graph-detail h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.resource-graph-detail p {
+  margin: 0 0 0.5rem;
+}
+
+.resource-graph-detail .resource-graph-kind {
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 575px) {
+  .resource-graph-canvas {
+    height: 510px;
+  }
+
+  .resource-graph-actions button {
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+  }
+}

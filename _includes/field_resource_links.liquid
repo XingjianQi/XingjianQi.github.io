@@ -1,0 +1,19 @@
+{% assign topic_resources = site.data.resource_links | where_exp: "resource", "resource.topics contains include.topic" | sort_natural: "title" %}
+{% assign resource_types = "website,event,library" | split: "," %}
+{% for resource_type in resource_types %}
+  {% assign type_resources = topic_resources | where: "type", resource_type %}
+  {% if type_resources.size > 0 %}
+    {% case resource_type %}
+      {% when "website" %}{% assign type_title = "Websites" %}
+      {% when "event" %}{% assign type_title = "Events" %}
+      {% when "library" %}{% assign type_title = "Libraries on GitHub" %}
+    {% endcase %}
+<h3 id="resource-{{ resource_type }}">{{ type_title }}</h3>
+<ul>
+  {% for resource in type_resources %}
+  <li>{% include resource_link_ancestors.liquid resource=resource resources=site.data.resource_links %}<a href="{{ resource.url | escape }}">{{ resource.title | escape }}</a> — {{ resource.description | escape }}</li>
+  {% endfor %}
+</ul>
+  {% endif %}
+{% endfor %}
+<p><a href="{{ '/resources/links/' | relative_url }}#topic={{ include.topic | url_encode }}">Browse this topic in the Link Library</a>.</p>

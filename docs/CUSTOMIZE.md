@@ -437,6 +437,36 @@ If you want to create blog posts that are not ready to be published, but you wan
 
 Note that `posts` is also a collection, but it is a default collection created automatically by Jekyll. To access the posts, you can use the `site.posts` variable in your templates.
 
+### Adding external articles without changing the configuration
+
+Use the [external-post draft](../_drafts/external-post.md) as a template for individual articles published elsewhere:
+
+1. Copy it to `_posts/YYYY-MM-DD-article-title.md`, using the article's publication date in the filename.
+2. Edit the title, description, `redirect` URL, `external_source` name, tags, and categories.
+3. Publish the file through your usual site deployment.
+
+The filename supplies the date. The article appears alongside local posts in chronological order, and its title links directly to the external website. No article body or `_config.yml` edit is required. Files left in `_drafts` are excluded from normal builds.
+
+The `external_sources` configuration is still available for RSS feeds and manually configured imports. Avoid importing an article there if you also add it as a file in `_posts`, as it can appear twice.
+
+### Maintaining the Link Library
+
+Add or edit entries in [`_data/resource_links.yml`](../_data/resource_links.yml). Each entry contains a unique, stable `id`, `title`, `url`, short `description`, `topics` list, `subtopics` list, `type`, and `tags` list. Store each URL only once; an entry can belong to multiple topics or subtopics. Use lowercase, hyphen-separated IDs.
+
+The existing topic values are `floating-point-arithmetic`, `interval-arithmetic`, and `vectorization`. They match the `resource_topic` field in each research guide. Use `website`, `event`, or `library` for the type. For a new research topic, give its guide a matching `resource_topic`; the Link Library derives topic labels and filter options automatically.
+
+Define subtopics in [`_data/resource_subtopics.yml`](../_data/resource_subtopics.yml), with an `id`, `title`, parent `topic`, and short `description`. Reference their IDs in a resource's `subtopics` list, and include each subtopic's parent in that resource's `topics`. For example, xsimd uses `topics: [vectorization]` and `subtopics: [simd-abstractions]`, while SLEEF uses the same topic with `subtopics: [vector-math]`. These describe their primary roles; shared tags such as SIMD and Elementary functions can still overlap. Resources without a subtopic connect directly to their topic.
+
+The Link Library at `/resources/links/` lists entries alphabetically within each level, with search and clickable topic, subtopic, type, and subject tags. Selecting a topic narrows the available subtopics; selecting a subtopic also selects its parent topic. Each guide's Useful resources section reads the same data, filtered by its topic. Books, papers, and standards remain in the guides' Literature sections.
+
+To nest a resource beneath another, set its optional `parent` to the other entry's ID. For example, Boost has `id: boost`, while Boost.Interval has `id: boost-interval` and `parent: boost`. Both keep their own title, URL, description, and tags. A child can also be a parent, allowing more than two levels without duplicating records. Every parent must exist; do not create circular parent relationships.
+
+Topics, subtopics, and tags belong to each entry individually. Broad parent resources can use `topics: []` and `subtopics: []`. When a child matches a filter, its ancestors remain visible for context and are counted separately from matches. Search also includes ancestor titles, so searching for a project name finds its components. Research guides show the parent path before each relevant child, such as Boost › Boost.Interval.
+
+The List / Graph buttons switch between the hierarchy and an interactive knowledge graph. List is the default; `/resources/links/#view=graph` opens the graph directly. Both views use the same search and filters. The graph arranges each topic in its own column, branching through subtopics to resources. Dashed arrows separately connect parent resources to their components. Select a topic or subtopic to highlight its branch, or a resource to show its connections and original website. Topic, subtopic, and tag details offer a filter button. Drag nodes to rearrange them or drag the background to pan; use the zoom and Fit buttons to adjust the view. Shared tag connections are hidden by default; enable Show shared tags to explore relationships across branches. The graph uses the resource data already rendered on the page and needs no duplicate resource records or external graph service.
+
+Both views update on the next site build or deployment; no `_config.yml` or page edits are needed when adding a link to an existing topic. This does not discover new links or update the deployed site without a build. The Resources landing page presents Links before Research.
+
 ## Creating new projects
 
 You can create new projects by adding new Markdown files in the [\_projects](../_projects/) directory. The easiest way to do this is to copy an existing project and modify it.

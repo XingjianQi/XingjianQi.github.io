@@ -1,0 +1,184 @@
+# Add each URL once. Topics determine which research pages also show the link.
+# Topic names match resource_topic in _field_guides; type is website, event, or library.
+# Give every resource a unique, stable id. Optional parent refers to another id.
+# Subtopics refer to IDs in resource_subtopics.yml and must belong to a listed topic.
+- id: llvm-vectorization
+  title: Auto-Vectorization in LLVM
+  url: https://llvm.org/docs/Vectorizers.html
+  description: Documentation on loop and SLP vectorization, including examples and optimization diagnostics.
+  topics: [vectorization]
+  subtopics: [compiler-vectorization]
+  type: website
+  tags: [Compilers, SIMD]
+
+- id: berkeley-softfloat
+  title: Berkeley SoftFloat
+  url: https://github.com/ucb-bar/berkeley-softfloat-3
+  description: A software implementation of binary floating-point operations for studying and checking arithmetic behavior.
+  topics: [floating-point-arithmetic]
+  subtopics: [arithmetic-implementations]
+  type: library
+  tags: [C, Rounding, Verification]
+
+- id: boost
+  title: Boost
+  url: https://www.boost.org/
+  description: A collection of portable, peer-reviewed C++ libraries for a wide range of programming tasks.
+  topics: []
+  subtopics: []
+  type: library
+  tags: ["C++"]
+
+- id: boost-interval
+  parent: boost
+  title: Boost.Interval
+  url: https://github.com/boostorg/interval
+  description: A C++ interval library with configurable rounding and checking policies.
+  topics: [interval-arithmetic]
+  subtopics: [verified-libraries]
+  type: library
+  tags: ["C++", Rounding]
+
+- id: cgo
+  title: Code Generation and Optimization (CGO)
+  url: https://cgo.org/
+  description: A conference on compiler optimization and efficient execution.
+  topics: [vectorization]
+  subtopics: [compiler-vectorization]
+  type: event
+  tags: [Compilers, Optimization]
+
+- id: float-exposed
+  title: Float Exposed
+  url: https://float.exposed/
+  description: An interactive tool for exploring floating-point bit patterns and the values they represent.
+  topics: [floating-point-arithmetic]
+  subtopics: [number-formats]
+  type: website
+  tags: [Number formats]
+
+- id: gcc-vectorization
+  title: GCC Auto-vectorization
+  url: https://gcc.gnu.org/projects/tree-ssa/vectorization.html
+  description: Examples and background on GCC's vectorization support.
+  topics: [vectorization]
+  subtopics: [compiler-vectorization]
+  type: website
+  tags: [Compilers, SIMD]
+
+- id: mpfr-manual
+  title: GNU MPFR manual
+  url: https://www.mpfr.org/mpfr-current/mpfr.html
+  description: Documentation for multiple-precision computation with explicit rounding control.
+  topics: [floating-point-arithmetic]
+  subtopics: [precision-rounding]
+  type: website
+  tags: [Multiple precision, Rounding]
+
+- id: highway
+  title: Highway
+  url: https://github.com/google/highway
+  description: A portable C++ SIMD library with examples and links to documentation.
+  topics: [vectorization]
+  subtopics: [simd-abstractions]
+  type: library
+  tags: ["C++", SIMD]
+
+- id: ieee-1788
+  title: IEEE 1788 Working Group
+  url: https://grouper.ieee.org/groups/1788/
+  description: Background and discussions on interval-arithmetic standardization.
+  topics: [interval-arithmetic]
+  subtopics: [interval-standards]
+  type: website
+  tags: [Standards]
+
+- id: arith
+  title: IEEE Symposium on Computer Arithmetic (ARITH)
+  url: https://www.arithsymposium.org/
+  description: A conference series covering arithmetic algorithms, number formats, and implementations.
+  topics: [floating-point-arithmetic]
+  subtopics: [arithmetic-research]
+  type: event
+  tags: [Number formats, Rounding]
+
+- id: intel-intrinsics
+  title: Intel Intrinsics Guide
+  url: https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
+  description: A searchable reference for Intel intrinsics and their corresponding instructions.
+  topics: [vectorization]
+  subtopics: [instruction-reference]
+  type: website
+  tags: [Intrinsics, SIMD]
+
+- id: interval-computations
+  title: Interval Computations
+  url: https://reliable-computing.org/
+  description: A community resource with access to the journal Reliable Computing and information on interval methods.
+  topics: [interval-arithmetic]
+  subtopics: [verified-computing-community]
+  type: website
+  tags: [Verification]
+
+- id: interval-arithmetic-julia
+  title: IntervalArithmetic.jl
+  url: https://github.com/JuliaIntervals/IntervalArithmetic.jl
+  description: Interval arithmetic and validated numerical computation in Julia.
+  topics: [interval-arithmetic]
+  subtopics: [verified-libraries]
+  type: library
+  tags: [Julia, Verification]
+
+- id: intlab
+  title: INTLAB
+  url: https://www.tuhh.de/ti3/rump/intlab/
+  description: Software, documentation, and demonstrations for verified numerical computation in MATLAB and Octave.
+  topics: [interval-arithmetic]
+  subtopics: [verified-libraries]
+  type: website
+  tags: [MATLAB, Octave, Verification]
+
+- id: llvm-meetings
+  title: LLVM Developers' Meetings
+  url: https://llvm.org/devmtg/
+  description: Talks and discussions on compiler development, including vectorization.
+  topics: [vectorization]
+  subtopics: [compiler-vectorization]
+  type: event
+  tags: [Compilers]
+
+- id: scan-2027
+  title: SCAN 2027
+  url: https://scan2027.w.waseda.jp/index.html
+  description: The Symposium on Scientific Computing, Computer Arithmetic, and Verified Numerical Computations.
+  topics: [interval-arithmetic]
+  subtopics: [verified-computing-community]
+  type: event
+  tags: [Verification]
+
+- id: sleef
+  title: SLEEF
+  url: https://github.com/shibatch/sleef
+  description: Vectorized implementations of C math functions, useful for studying the accuracy and performance of elementary functions on SIMD hardware.
+  topics: [vectorization]
+  subtopics: [vector-math]
+  type: library
+  tags: [C, Elementary functions, SIMD]
+
+- id: universal
+  title: Universal
+  url: https://github.com/stillwater-sc/universal
+  description: A C++ library of number systems for experimenting with custom arithmetic and mixed precision.
+  topics: [floating-point-arithmetic]
+  subtopics: [number-formats]
+  type: library
+  tags: ["C++", Mixed precision, Number formats]
+
+- id: xsimd
+  title: xsimd
+  url: https://github.com/xtensor-stack/xsimd
+  description: Portable C++ batch types and operations that abstract SIMD instruction sets, with vectorized mathematical functions included.
+  topics: [vectorization]
+  subtopics: [simd-abstractions]
+  type: library
+  tags: ["C++", Elementary functions, SIMD]

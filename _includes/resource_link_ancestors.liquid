@@ -1,0 +1,13 @@
+{%- assign resource_ancestors = "" | split: "," -%}
+{%- assign ancestor_node = include.resource -%}
+{%- assign ancestor_limit = include.resources.size -%}
+{%- for ancestor_step in (1..ancestor_limit) -%}
+  {%- unless ancestor_node.parent -%}{%- break -%}{%- endunless -%}
+  {%- assign ancestor_node = include.resources | where: "id", ancestor_node.parent | first -%}
+  {%- unless ancestor_node -%}{%- break -%}{%- endunless -%}
+  {%- assign resource_ancestors = resource_ancestors | push: ancestor_node -%}
+{%- endfor -%}
+{%- assign resource_ancestors = resource_ancestors | reverse -%}
+{%- for resource_ancestor in resource_ancestors -%}
+  <a href="{{ resource_ancestor.url | escape }}">{{ resource_ancestor.title | escape }}</a>&nbsp;&rsaquo;&nbsp;
+{%- endfor -%}

@@ -1,12 +1,11 @@
 ---
-layout: cv
+layout: page
 permalink: /cv/
 title: CV
 nav: true
-nav_order: 5
-cv_pdf: /assets/pdf/example_pdf.pdf # you can also use external links here
-cv_format: rendercv # options: rendercv, jsonresume
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
+nav_order: 6
+description: Download my curriculum vitae.
 ---
+<a class="btn btn-sm z-depth-0" href="{{ '/assets/pdf/xingjian-qi-cv.pdf' | relative_url }}" download>
+  <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Download CV
+</a>

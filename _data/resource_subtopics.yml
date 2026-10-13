@@ -1,0 +1,56 @@
+# Subtopics describe a resource's purpose within a research topic.
+# Use these stable IDs in resource_links.yml; tags remain cross-cutting labels.
+- id: compiler-vectorization
+  title: Compiler vectorization
+  topic: vectorization
+  description: Automatic vectorization, compiler optimizations, and compiler development.
+
+- id: simd-abstractions
+  title: SIMD abstractions
+  topic: vectorization
+  description: Portable interfaces for writing SIMD code across instruction sets.
+
+- id: vector-math
+  title: Vector math functions
+  topic: vectorization
+  description: Numerical implementations of elementary functions evaluated with SIMD.
+
+- id: instruction-reference
+  title: Intrinsics and instructions
+  topic: vectorization
+  description: References for processor intrinsics and the instructions they expose.
+
+- id: number-formats
+  title: Number formats
+  topic: floating-point-arithmetic
+  description: Representations of numbers and tools for exploring their properties.
+
+- id: arithmetic-implementations
+  title: Arithmetic implementations
+  topic: floating-point-arithmetic
+  description: Implementations of floating-point arithmetic operations.
+
+- id: precision-rounding
+  title: Precision and rounding
+  topic: floating-point-arithmetic
+  description: Controlling arithmetic precision and rounding behavior.
+
+- id: arithmetic-research
+  title: Arithmetic research
+  topic: floating-point-arithmetic
+  description: Research events and communities focused on computer arithmetic.
+
+- id: verified-libraries
+  title: Verified computing libraries
+  topic: interval-arithmetic
+  description: Libraries and software for interval arithmetic and validated computation.
+
+- id: interval-standards
+  title: Interval standards
+  topic: interval-arithmetic
+  description: Communities and resources concerned with interval-arithmetic standardization.
+
+- id: verified-computing-community
+  title: Verified computing community
+  topic: interval-arithmetic
+  description: Events and community resources for interval methods and verified computation.

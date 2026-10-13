@@ -1,0 +1,33 @@
+{% assign children = include.resources | where: "parent", include.resource.id %}
+{% assign heading_level = include.depth | plus: 2 | at_most: 6 %}
+<li id="resource-{{ include.resource.id | escape }}" class="resource-link-entry" data-resource-id="{{ include.resource.id | escape }}">
+  <div class="resource-link-content">
+    <h{{ heading_level }} class="resource-link-title"><a href="{{ include.resource.url | escape }}">{{ include.resource.title | escape }}</a></h{{ heading_level }}>
+    <p>{{ include.resource.description | escape }}</p>
+    <div class="resource-link-tags" aria-label="Resource tags">
+      {% for topic in include.resource.topics %}
+        {% assign topic_guide = site.field_guides | where: "resource_topic", topic | first %}
+        {% assign topic_label = topic_guide.title | default: topic %}
+        <a class="resource-tag" href="#topic={{ topic | url_encode }}" data-resource-facet="topic" data-resource-value="{{ topic | escape }}" aria-controls="resource-link-list">{{ topic_label | escape }}</a>
+      {% endfor %}
+      {% for subtopic_id in include.resource.subtopics %}
+        {% assign subtopic = site.data.resource_subtopics | where: "id", subtopic_id | first %}
+        {% if subtopic %}
+          <a class="resource-tag" href="#subtopic={{ subtopic_id | url_encode }}" data-resource-facet="subtopic" data-resource-value="{{ subtopic_id | escape }}" data-resource-topic="{{ subtopic.topic | escape }}" data-resource-description="{{ subtopic.description | escape }}" aria-controls="resource-link-list">{{ subtopic.title | escape }}</a>
+        {% endif %}
+      {% endfor %}
+      <a class="resource-tag" href="#type={{ include.resource.type | url_encode }}" data-resource-facet="type" data-resource-value="{{ include.resource.type | escape }}" aria-controls="resource-link-list">{{ include.resource.type | capitalize | escape }}</a>
+      {% for tag in include.resource.tags %}
+        <a class="resource-tag" href="#tag={{ tag | url_encode }}" data-resource-facet="tag" data-resource-value="{{ tag | escape }}" aria-controls="resource-link-list">{{ tag | escape }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% if children.size > 0 %}
+    <ul class="resource-link-children" aria-label="Resources within {{ include.resource.title | escape }}">
+      {% for child in children %}
+        {% assign child_depth = include.depth | plus: 1 %}
+        {% include resource_link_node.liquid resource=child resources=include.resources depth=child_depth %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>
