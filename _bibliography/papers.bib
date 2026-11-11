@@ -1,5 +1,21 @@
 % Add a topic field to a publication to include it in that topic's filter on the Publications page.
 % Examples: topic = {Interval Arithmetic}, {Mixed Precision}, or {Number Formats}.
+@inproceedings{qi2026simdmath,
+bibtex_show = {true},
+topic = {Vectorization},
+author = {Qi, Xingjian and Strzodka, Robert},
+title = {Evaluating Function-Level Accuracy and Performance of {SIMD} Math Libraries with {FP32} Inputs},
+booktitle = {10th International Workshop on Software Correctness for HPC Applications (Correctness 2026)},
+year = {2026},
+month = {nov},
+location = {Chicago, IL, USA},
+note = {Accepted for publication},
+code = {https://github.com/XingjianQi/SIMDMathBench},
+website = {https://rangure.github.io/research/floating-point-reliability/},
+keywords = {SIMD, Numerical accuracy, Performance, Math libraries, FP32},
+abbr = {Correctness 2026}
+}
+
 @inproceedings{10.1145/3832810.3832828,
 bibtex_show = {true},
 topic = {Interval Arithmetic},
@@ -11,6 +27,7 @@ publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3832810.3832828},
 doi = {10.1145/3832810.3832828},
+website = {https://rangure.github.io/research/interval-arithmetic/},
 abstract = {Interval arithmetic provides guaranteed error bounds for finite-precision numerical computations, but obtaining these error bounds is much slower than the original computation. Even on highly memory bound workloads like small 1D stencils, the existing approaches fail to hide the overhead of changing from scalar to interval arithmetic. This paper presents VILIB++, a high performance interval arithmetic library designed to map efficiently onto SIMD hardware. We design a branchless rounding kernel that replaces global rounding-mode changes with a correction scheme. This design enables auto-vectorization by standard compilers without requiring manual SIMD intrinsics. Consequently, VILIB++ preserves vectorized execution when used as a drop-in replacement for vectorized scalar codes. We further introduce a benchmark suite targeting both compute and memory-bound scenarios to evaluate interval arithmetic libraries under realistic workload conditions. Experiments show that VILIB++ achieves substantially higher throughput and effectively hides the overhead of switching from scalar to interval arithmetic for different memory bound workload. This performance is obtained at the cost of moderately increased interval widths, reflecting a practical trade-off between bound tightness and parallel efficiency.},
 booktitle = {Proceedings of the 55th International Conference on Parallel Processing},
 pages = {260-270},

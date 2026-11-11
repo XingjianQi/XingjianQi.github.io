@@ -465,7 +465,19 @@ Topics, subtopics, and tags belong to each entry individually. Broad parent reso
 
 The List / Graph buttons switch between the hierarchy and an interactive knowledge graph. List is the default; `/resources/links/#view=graph` opens the graph directly. Both views use the same search and filters. The graph arranges each topic in its own column, branching through subtopics to resources. Dashed arrows separately connect parent resources to their components. Select a topic or subtopic to highlight its branch, or a resource to show its connections and original website. Topic, subtopic, and tag details offer a filter button. Drag nodes to rearrange them or drag the background to pan; use the zoom and Fit buttons to adjust the view. Shared tag connections are hidden by default; enable Show shared tags to explore relationships across branches. The graph uses the resource data already rendered on the page and needs no duplicate resource records or external graph service.
 
-Both views update on the next site build or deployment; no `_config.yml` or page edits are needed when adding a link to an existing topic. This does not discover new links or update the deployed site without a build. The Resources landing page presents Links before Research.
+Both views update on the next site build or deployment; no `_config.yml` or page edits are needed when adding a link to an existing topic. This does not discover new links or update the deployed site without a build. The Resources landing page presents Links before Field Guides.
+
+### Maintaining the Research pages
+
+The Research overview at `_pages/research.md` lists project documents from `_projects/` with `research: true`, sorted by `importance`. Each card uses the project's `title`, `description`, `research_area`, and `research_highlight`. Give each project a permalink under `/research/`; the existing projects collection handles it without a configuration change. The starter's example projects are excluded from this overview.
+
+Each card spans the content width, with a 16:9 figure area on the left and text on the right; on narrow screens, the figure sits above the text. Set `research_figure` to a local image path such as `/assets/img/research/interval-arithmetic.png`, and describe it in `research_figure_alt`. Leave `research_figure` empty to keep the reserved space. Figures are fitted without cropping.
+
+Project pages describe the research problem, approach, results, and limitations. Use `layout: page` and link back to the overview and relevant Resources field guides. Keep introductory material and external link collections in Resources. The shared presentation styles are in `assets/css/research.css`.
+
+Publications remain in `_bibliography/papers.bib`. Each project uses Jekyll Scholar's `reference` tag with the paper's key to render a plain formatted citation, without the Publications page's card and buttons. Below the citation, text links provide a BibTeX download and the publisher's page (or the workshop program while publication links are pending). Files under `assets/bib/` generate the downloads from the same bibliography entries at build time, filtering out site-specific fields. Citation metadata is maintained in one place. The `website` field on the publication links back to its research page, and `code` supplies a repository link when available. Preserve the distinction between paper results and later experiments, including library versions and qualifications on measured or assumed bounds.
+
+The Interval Arithmetic page currently includes the reported numerical results but not the original benchmark figures. Add the original figures under `assets/img/research/` when available, retaining their benchmark conditions and captions.
 
 ## Creating new projects
 

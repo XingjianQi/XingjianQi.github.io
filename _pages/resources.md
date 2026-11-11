@@ -13,9 +13,11 @@ Under Construction. Currently AI generated.
 
 [Browse the Link Library]({{ '/resources/links/' | relative_url }}) for websites, events, and libraries on GitHub, with short descriptions and tags. Search all links or filter by topic, resource type, and tag.
 
-## Research
+## Field Guides
 
 These pages introduce the ideas and people behind each research field. Books, papers, and standards are linked in the literature sections. Each page ends with useful links for that field.
+
+For details of my own projects, methods, and results, visit [Research]({{ '/research/' | relative_url }}).
 
 {% assign guides = site.field_guides | sort: "order" %}
 

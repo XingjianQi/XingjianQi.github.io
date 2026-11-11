@@ -8,12 +8,12 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # contact icons are rendered below the page heading instead
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: false # disable the layout's placement; news is included below the bio
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false # disable the layout's placement; latest posts are included below news
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
@@ -31,6 +31,14 @@ Between my academic studies, I worked full-time as an Algorithm Engineer at Yum 
 <!-- Alongside my research, I maintain [Resources]({{ '/resources/' | relative_url }}) for readers who want an introduction to [Floating-Point Arithmetic]({{ '/resources/floating-point-arithmetic/' | relative_url }}) and [Vectorization]({{ '/resources/vectorization/' | relative_url }}). -->
 
 I welcome collaborations that connect arithmetic research with practical challenges in scientific computing.
+
+<h4><a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a></h4>
+
+{% include news.liquid limit=true %}
+
+<h4><a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a></h4>
+
+{% include latest_posts.liquid %}
 
 #### Education Background
 

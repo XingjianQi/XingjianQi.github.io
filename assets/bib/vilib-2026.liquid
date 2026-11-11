@@ -1,0 +1,10 @@
+---
+layout: null
+# Use a Liquid source so the BibTeX converter does not turn this export into HTML.
+permalink: /assets/bib/vilib-2026.bib
+scholar:
+  bibliography_template: "{{ entry.bibtex | hideCustomBibtex }}"
+  group_by: none
+---
+{% capture citation %}{% bibliography --query @*[key=10.1145/3832810.3832828] %}{% endcapture %}
+{{ citation | strip_html | strip }}

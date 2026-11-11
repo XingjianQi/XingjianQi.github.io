@@ -2,38 +2,72 @@
 layout: page
 title: Research
 permalink: /research/
-description: Research on accurate and efficient computer arithmetic for scientific computing.
+description: Accurate and efficient computer arithmetic, from numerical methods to working software.
 nav: true
 nav_order: 1
+_styles: |
+  .post > .post-header > .post-title,
+  .post > article > h2 {
+    font-weight: 500;
+  }
 ---
 
-My research focuses on improving the **accuracy**, **efficiency**, and **expressiveness** of computer arithmetic. I work across numerical representation, algorithms, and software implementation, with the goal of making new arithmetic ideas useful in real scientific applications.
+My research examines the relationship between **numerical reliability and computational performance**. I study how arithmetic representations, algorithms, and implementations affect both the quality of a result and the cost of obtaining it, and develop numerical software for scientific computing.
 
-## Numerical representations
+## Research directions
 
-Conventional IEEE floating-point formats are an extraordinarily successful compromise, but no single fixed format is ideal for every stage of every computation. I investigate alternative and variable-length representations that can distribute precision and dynamic range differently, including tapered floating-point formats.
+### Number formats
 
-The central question is not simply whether a new format can represent more values. A useful representation must also support efficient operations, predictable numerical behavior, and integration into existing software and hardware.
+I am interested in alternative and variable-length representations, including tapered floating-point formats. I study how precision and dynamic range can be allocated differently, and how these choices affect arithmetic operations, numerical behavior, and implementation cost.
 
-## Mixed- and low-precision algorithms
+### Mixed- and low-precision algorithms
 
-Many numerical algorithms do not need the same precision everywhere. Lower precision can reduce memory traffic, increase SIMD throughput, and lower computational cost; higher precision can be reserved for sensitive operations, residual calculations, or refinement.
+I investigate how precision can be chosen across an algorithm to reduce computational cost while controlling numerical error. This includes efficient CPU and GPU implementations and the use of higher precision for sensitive operations or refinement.
 
-I am interested in algorithms that make these choices deliberately and provide a clear relationship between computational cost and the accuracy of the final result.
+### Scientific applications
 
-## Arithmetic libraries
+I am interested in evaluating these arithmetic choices in practical workloads, where memory traffic, data layout, compiler behavior, and numerical requirements all influence the outcome.
 
-I develop C++ libraries that turn arithmetic research into tools that can be evaluated in applications. Current directions include:
+## Research projects
 
-- emulation and evaluation of novel tapered floating-point formats;
-- fast interval arithmetic;
-- variable-length and mixed-precision data types;
-- SIMD implementations of numerical operations;
-- Efficient(GPU and CPU) implementations of mixed-precision algorithms;
-- applying these libraries to scientific-computing workloads.
+Two current strands of this work are efficient interval arithmetic and the accuracy and performance of floating-point mathematical functions. The pages below explain the problems we address, our approaches, and the results and limitations of our evaluations.
 
-The [Resources]({{ '/resources/' | relative_url }}) pages give broader introductions and useful links for [floating-point arithmetic]({{ '/resources/floating-point-arithmetic/' | relative_url }}), [interval arithmetic]({{ '/resources/interval-arithmetic/' | relative_url }}), and [vectorization]({{ '/resources/vectorization/' | relative_url }}).
+{% assign research_projects = site.projects | where: "research", true | sort: "importance" %}
 
-## Collaboration
+<div class="research-projects">
+  {% for project in research_projects %}
+    <a class="research-project-card" href="{{ project.url | relative_url }}">
+      {% assign research_figure = project.research_figure | default: "" %}
+      {% if research_figure != empty %}
+        <span class="research-project-figure">
+          <img src="{{ research_figure | relative_url }}" alt="{{ project.research_figure_alt | default: project.title | escape }}" width="640" height="360" loading="lazy">
+        </span>
+      {% else %}
+        <span class="research-project-figure research-project-figure-placeholder" aria-hidden="true">
+          <svg width="48" height="36" viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
+            <rect x="1" y="1" width="46" height="34" rx="3" />
+            <circle cx="34" cy="11" r="3" />
+            <path d="M3 29 15 16 25 26 31 20 45 33" />
+          </svg>
+        </span>
+      {% endif %}
+      <div class="research-project-content">
+        <span class="research-project-area">{{ project.research_area | escape }}</span>
+        <h3>{{ project.title | escape }}</h3>
+        <p>{{ project.description | escape }}</p>
+        <p class="research-project-highlight">{{ project.research_highlight | escape }}</p>
+        <span class="research-project-link">Explore the research →</span>
+      </div>
+    </a>
+  {% endfor %}
+</div>
 
-I am looking for scientific applications in which arithmetic representation or precision is a genuine performance or accuracy constraint. If you are interested in evaluating one of my libraries or exploring a joint application, please contact me with Email. 
+The [Publications]({{ '/publications/' | relative_url }}) page collects the associated papers and citation details.
+
+## Background and collaboration
+
+For introductions to the underlying fields, visit the [Field Guides]({{ '/resources/#field-guides' | relative_url }}). The [Link Library]({{ '/resources/links/' | relative_url }}) collects external tools, websites, and events.
+
+I welcome collaborations on applications where precision, rounding, or numerical reliability limits performance or the usefulness of a result. You can reach me by [email](mailto:{{ site.data.socials.email }}).
+
+<link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url | bust_file_cache }}">
