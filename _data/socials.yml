@@ -2,11 +2,11 @@
 # the socials will be displayed in the order they are defined here
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
 email: xingjian.qi@ziti.uni-heidelberg.de
-github_username: rangure
-linkedin_username: xingjian-qi-2765b2251
+github_username: XingjianQi
+linkedin_username: xingjian-qi
 google_scholar:
   logo: ai ai-google-scholar
   title: Google Scholar
-  url: https://scholar.google.com/scholar?q=%22Xingjian+Qi%22+Heidelberg
+  url: https://scholar.google.com/citations?user=Y6MDbOAAAAAJ&hl=en&oi=ao
 # wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
