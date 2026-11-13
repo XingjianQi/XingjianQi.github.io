@@ -30,7 +30,7 @@ I'm from [Qingdao](https://en.wikipedia.org/wiki/Qingdao), Shandong, China. It i
 </div>
 
 ### Randomly Persistent
-I'm working towards Galactic win streaks of [LinkedIn daily games](https://www.linkedin.com/games/).
+I'm working towards Cosmic win streaks of [LinkedIn daily games](https://www.linkedin.com/games/). Expected to arrive by Jan. 2028. 
 
 
 ### Music
