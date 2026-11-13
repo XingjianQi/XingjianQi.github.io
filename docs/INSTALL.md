@@ -145,6 +145,8 @@ For a hands-on walkthrough of running al-folio locally without using Docker, che
 
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (_hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)_), and also [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) (_hint: for ease of managing python packages, consider using a virtual environment, like [venv](https://docs.python.org/pt-br/3/library/venv.html) or `conda`_).
 
+Use Ruby **3.3.3** to match this site's GitHub Actions workflows. The Ruby workflows pin `ubuntu-24.04`, which has a prebuilt Ruby 3.3.3 available; newer runner images may not provide that exact patch version.
+
 ```bash
 bundle install
 # optional but recommended if you use jupyter posts:
@@ -217,7 +219,7 @@ If you need to manually re-deploy your website to GitHub pages, go to Actions, c
    - | Key            | Value                                                                                  |
      | -------------- | -------------------------------------------------------------------------------------- |
      | `JEKYLL_ENV`   | `production`                                                                           |
-     | `RUBY_VERSION` | set to the Ruby version found in `.github/workflows/deploy.yml` (for example, `3.3.5`) |
+     | `RUBY_VERSION` | set to the Ruby version found in `.github/workflows/deploy.yml` (for example, `3.3.3`) |
 
 5. Netlify: Click **Deploy** and wait for the site to be published. If you want to use your own domain name, follow the steps in [this documentation](https://docs.netlify.com/domains-https/custom-domains/).
 

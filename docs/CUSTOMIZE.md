@@ -457,7 +457,7 @@ The existing topic values are `floating-point-arithmetic`, `interval-arithmetic`
 
 Define subtopics in [`_data/resource_subtopics.yml`](../_data/resource_subtopics.yml), with an `id`, `title`, parent `topic`, and short `description`. Reference their IDs in a resource's `subtopics` list, and include each subtopic's parent in that resource's `topics`. For example, xsimd uses `topics: [vectorization]` and `subtopics: [simd-abstractions]`, while SLEEF uses the same topic with `subtopics: [vector-math]`. These describe their primary roles; shared tags such as SIMD and Elementary functions can still overlap. Resources without a subtopic connect directly to their topic.
 
-The Link Library at `/resources/links/` lists entries alphabetically within each level, with search and clickable topic, subtopic, type, and subject tags. Selecting a topic narrows the available subtopics; selecting a subtopic also selects its parent topic. Each guide's Useful resources section reads the same data, filtered by its topic. Books, papers, and standards remain in the guides' Literature sections.
+The Link Library at `/resources/links/` lists entries alphabetically within each level, with search and clickable topic, subtopic, type, and subject tags. Selecting a topic narrows the available subtopics; selecting a subtopic also selects its parent topic. Each guide's Useful resources section reads the same data, filtered by its topic. Books, papers, and standards in the guides' literature sections are rendered from `_bibliography/papers.bib`.
 
 To nest a resource beneath another, set its optional `parent` to the other entry's ID. For example, Boost has `id: boost`, while Boost.Interval has `id: boost-interval` and `parent: boost`. Both keep their own title, URL, description, and tags. A child can also be a parent, allowing more than two levels without duplicating records. Every parent must exist; do not create circular parent relationships.
 
@@ -466,6 +466,17 @@ Topics, subtopics, and tags belong to each entry individually. Broad parent reso
 The List / Graph buttons switch between the hierarchy and an interactive knowledge graph. List is the default; `/resources/links/#view=graph` opens the graph directly. Both views use the same search and filters. The graph arranges each topic in its own column, branching through subtopics to resources. Dashed arrows separately connect parent resources to their components. Select a topic or subtopic to highlight its branch, or a resource to show its connections and original website. Topic, subtopic, and tag details offer a filter button. Drag nodes to rearrange them or drag the background to pan; use the zoom and Fit buttons to adjust the view. Shared tag connections are hidden by default; enable Show shared tags to explore relationships across branches. The graph uses the resource data already rendered on the page and needs no duplicate resource records or external graph service.
 
 Both views update on the next site build or deployment; no `_config.yml` or page edits are needed when adding a link to an existing topic. This does not discover new links or update the deployed site without a build. The Resources landing page presents Links before Field Guides.
+
+### Maintaining references
+
+Keep all citation metadata in `_bibliography/papers.bib`, including your publications, field-guide literature, and starter example references. Use unique citation keys and Jekyll Scholar's `cite` or `reference` tags to reuse an entry elsewhere.
+
+- Set `publication = {true}` on your own papers to show them on the Publications page. Omit this field on external references.
+- For a field-guide reference, set `resource_topic` to the guide's topic (`floating-point-arithmetic`, `interval-arithmetic`, or `vectorization`) and `reading_order` to its position in the list. Keep the destination in `url`. The guides use `_layouts/field_guide_reference.liquid` to render citations and reading links.
+- Keep `topic` for the Publications page's research-topic filters; it is separate from `resource_topic`.
+- BibTeX downloads under `assets/bib/` and the legacy Distill download under `assets/bibliography/` are generated from the same file. Their Liquid templates select entries by key; do not maintain separate `.bib` copies.
+
+The `publication`, `resource_topic`, and `reading_order` fields are site metadata and are filtered out of displayed and downloaded BibTeX.
 
 ### Maintaining the Research pages
 
@@ -796,7 +807,7 @@ After rebuilding, users can browse books by adaptation at `/books/adaptations/mo
 
 ## Adding a new publication
 
-To add publications create a new entry in the [\_bibliography/papers.bib](../_bibliography/papers.bib) file. You can find the BibTeX entry of a publication in Google Scholar by clicking on the quotation marks below the publication title, then clicking on "BibTeX", or also in the conference page itself. By default, the publications will be sorted by year and the most recent will be displayed first. You can change this behavior and more in the `Jekyll Scholar` section in [\_config.yml](../_config.yml) file.
+To add publications create a new entry in the [\_bibliography/papers.bib](../_bibliography/papers.bib) file and set `publication = {true}`. External references share this file but omit that field so they do not appear on your Publications page. You can find the BibTeX entry of a publication in Google Scholar by clicking on the quotation marks below the publication title, then clicking on "BibTeX", or also in the conference page itself. By default, the publications will be sorted by year and the most recent will be displayed first. You can change this behavior and more in the `Jekyll Scholar` section in [\_config.yml](../_config.yml) file.
 
 You can add extra information to a publication, like a PDF file in the `assets/pdfs/` directory and add the path to the PDF file in the BibTeX entry with the `pdf` field. Some of the supported fields are: `abstract`, `altmetric`, `annotation`, `arxiv`, `bibtex_show`, `blog`, `code`, `dimensions`, `doi`, `eprint`, `hal`, `html`, `isbn`, `pdf`, `pmid`, `poster`, `slides`, `supp`, `video`, and `website`.
 

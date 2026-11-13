@@ -18,7 +18,7 @@ scholar:
 
 <div id="publication-list" class="publications">
 
-{% bibliography --group_by year --group_order descending %}
+{% bibliography --query @*[publication=true] --group_by year --group_order descending %}
 
 </div>
 

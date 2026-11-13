@@ -3,6 +3,9 @@ title: Interval Arithmetic
 description: Computing with guaranteed enclosures, from outward rounding and dependency to verified numerical algorithms.
 order: 2
 resource_topic: interval-arithmetic
+scholar:
+  sort_by: reading_order
+  order: ascending
 ---
 
 Interval arithmetic represents an uncertain or unknown real value by an interval $[a,b]$ and extends operations so the resulting interval contains every possible exact result. Instead of asking only for a plausible approximation, it asks for an **enclosure** that can support a mathematical guarantee.
@@ -43,10 +46,7 @@ Most practical interval implementations build on [floating-point arithmetic]({{ 
 
 ## A route into the literature
 
-1. Ramon E. Moore, R. Baker Kearfott, and Michael J. Cloud, [*Introduction to Interval Analysis*](https://epubs.siam.org/doi/book/10.1137/1.9780898717716).
-2. Arnold Neumaier, [*Interval Methods for Systems of Equations*](https://www.cambridge.org/core/books/interval-methods-for-systems-of-equations/1BC3BDF16A2F4EC44EAFAD75051733DA).
-3. IEEE 1788, [*Standard for Interval Arithmetic*](https://standards.ieee.org/ieee/1788/4431/).
-4. Ulrich Kulisch, [*Computer Arithmetic and Validity*](https://www.degruyterbrill.com/document/doi/10.1515/9783110301793/html).
+{% bibliography --query @*[resource_topic=interval-arithmetic] --template field_guide_reference --group_by none %}
 
 ## Useful resources
 

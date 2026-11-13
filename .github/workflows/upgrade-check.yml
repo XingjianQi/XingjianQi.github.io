@@ -36,7 +36,8 @@ on:
 
 jobs:
   upgrade-check:
-    runs-on: ubuntu-latest
+    # Keep the runner compatible with the pinned Ruby 3.3.3 build.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -44,7 +45,7 @@ jobs:
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
+          ruby-version: "3.3.3"
           bundler-cache: true
 
       - name: Run upgrade audit 🧪

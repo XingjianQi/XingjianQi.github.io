@@ -3,6 +3,9 @@ title: Vectorization
 description: How scalar computations become vector operations, and what this means for compilers, math libraries, and numerical behavior.
 order: 3
 resource_topic: vectorization
+scholar:
+  sort_by: reading_order
+  order: ascending
 ---
 
 Single Instruction, Multiple Data (SIMD) execution applies one operation to several data elements at once. It is a core source of performance in contemporary CPUs and accelerators, but productive SIMD programming requires more than replacing scalar types with vectors. Data layout, memory access, control flow, compiler analysis, and numerical semantics all interact.
@@ -46,9 +49,7 @@ Numerical SIMD code must respect the semantics of the arithmetic it accelerates.
 
 ## A route into the literature
 
-1. Michael J. Flynn, [*Some Computer Organizations and Their Effectiveness*](https://doi.org/10.1109/TC.1972.5009071).
-2. Dorit Nuzman, Ira Rosen, and Ayal Zaks, [*Auto-vectorization of Interleaved Data for SIMD*](https://research.ibm.com/publications/auto-vectorization-of-interleaved-data-for-simd).
-3. Naoki Shibata and Francesco Petrogalli, [*SLEEF: A Portable Vectorized Library of C Standard Mathematical Functions*](https://arxiv.org/abs/2001.09258).
+{% bibliography --query @*[resource_topic=vectorization] --template field_guide_reference --group_by none %}
 
 ## Useful resources
 

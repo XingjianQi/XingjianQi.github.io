@@ -73,7 +73,7 @@ Once your site is running, explore these customization options:
 
 - **Profile picture:** Replace `assets/img/prof_pic.jpg` with your photo
 - **About page:** Edit `_pages/about.md` to write your bio
-- **Publications:** Add entries to `_bibliography/papers.bib`
+- **Publications:** Add entries to `_bibliography/papers.bib` with `publication = {true}`. Keep external references in the same file without that field.
 - **Blog posts:** Create files in `_posts/` with format `YYYY-MM-DD-title.md`
 
 ### Customize Appearance

@@ -1,0 +1,10 @@
+---
+layout: null
+# Preserve the original download URL while keeping citation data in papers.bib.
+permalink: /assets/bibliography/2018-12-22-distill.bib
+scholar:
+  bibliography_template: "{{ entry.bibtex | hideCustomBibtex }}"
+  group_by: none
+---
+{% capture citation %}{% bibliography --query @*[key=gregor2015draw] %}{% endcapture %}
+{{ citation | strip_html | strip }}

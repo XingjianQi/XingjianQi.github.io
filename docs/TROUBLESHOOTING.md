@@ -235,6 +235,7 @@ bundle exec jekyll serve --port 5000
 **Checklist:**
 
 - [ ] File is at `_bibliography/papers.bib`
+- [ ] Your publication entry has `publication = {true}` (external references omit this field)
 - [ ] BibTeX syntax is correct (check for missing commas, unmatched braces)
 - [ ] Entry has a unique citation key: `@article{einstein1905, ...}`
 - [ ] Publication page is enabled: Check `publications_page: true` in `_config.yml`

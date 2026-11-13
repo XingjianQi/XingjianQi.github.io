@@ -3,6 +3,9 @@ title: Floating-Point Arithmetic
 description: How finite binary formats approximate real arithmetic—and how researchers reason about accuracy, performance, and new formats.
 order: 1
 resource_topic: floating-point-arithmetic
+scholar:
+  sort_by: reading_order
+  order: ascending
 ---
 
 Floating-point arithmetic is the machinery that turns real-number calculations into finite operations on a computer. It is remarkably successful: the same basic model supports weather simulations, graphics, machine learning, and control systems. It is also an approximation. Understanding where that approximation enters is the beginning of computer-arithmetic research.
@@ -47,10 +50,7 @@ Floating-point arithmetic also underlies topics such as [interval arithmetic]({{
 
 ## A route into the literature
 
-1. David Goldberg, [*What Every Computer Scientist Should Know About Floating-Point Arithmetic*](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html).
-2. Nicholas J. Higham, [*Accuracy and Stability of Numerical Algorithms*](https://epubs.siam.org/doi/book/10.1137/1.9780898718027).
-3. Jean-Michel Muller et al., [*Handbook of Floating-Point Arithmetic*](https://link.springer.com/book/10.1007/978-3-319-76526-6).
-4. IEEE 754, [*Standard for Floating-Point Arithmetic*](https://standards.ieee.org/ieee/754/6210/).
+{% bibliography --query @*[resource_topic=floating-point-arithmetic] --template field_guide_reference --group_by none %}
 
 ## Useful resources
 

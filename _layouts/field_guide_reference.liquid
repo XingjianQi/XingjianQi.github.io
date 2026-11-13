@@ -1,0 +1,6 @@
+---
+---
+{{ reference }}
+{% if entry.url %}
+  <a href="{{ entry.url | escape }}" aria-label="Read {{ entry.title | escape }}">Read</a>
+{% endif %}

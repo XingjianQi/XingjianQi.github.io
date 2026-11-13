@@ -348,7 +348,7 @@ scholar:
   locale: en
 
   source: /_bibliography/
-  bibliography: papers.bib
+  bibliography: papers.bib # Single source for publications and references throughout the site.
   bibliography_template: bib
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
@@ -397,6 +397,9 @@ filtered_bibtex_keywords:
     pmid,
     poster,
     preview,
+    publication,
+    reading_order,
+    resource_topic,
     selected,
     slides,
     supp,

@@ -1,6 +1,10 @@
+% Single source for publications, field-guide literature, and example citations.
+% Set publication = {true} only for papers shown on the Publications page.
+% Add resource_topic and reading_order to include a reference in a field guide.
 % Add a topic field to a publication to include it in that topic's filter on the Publications page.
 % Examples: topic = {Interval Arithmetic}, {Mixed Precision}, or {Number Formats}.
 @inproceedings{qi2026simdmath,
+publication = {true},
 bibtex_show = {true},
 topic = {Vectorization},
 author = {Qi, Xingjian and Strzodka, Robert},
@@ -17,6 +21,7 @@ abbr = {Correctness 2026}
 }
 
 @inproceedings{10.1145/3832810.3832828,
+publication = {true},
 bibtex_show = {true},
 topic = {Interval Arithmetic},
 author = {Qi, Xingjian and Strzodka, Robert},
@@ -36,6 +41,157 @@ keywords = {SIMD, Rounding, Error bounding, Verification methods},
 location = {Singapore, Singapore},
 series = {ICPP '26},
 abbr = {ICPP 2026}
+}
+
+% Floating-point arithmetic literature
+
+@article{goldberg1991floatingpoint,
+  author = {Goldberg, David},
+  title = {What Every Computer Scientist Should Know About Floating-Point Arithmetic},
+  journal = {ACM Computing Surveys},
+  year = {1991},
+  url = {https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html},
+  resource_topic = {floating-point-arithmetic},
+  reading_order = {1}
+}
+
+@book{higham2002accuracy,
+  author = {Higham, Nicholas J.},
+  title = {Accuracy and Stability of Numerical Algorithms},
+  edition = {2},
+  publisher = {Society for Industrial and Applied Mathematics},
+  year = {2002},
+  doi = {10.1137/1.9780898718027},
+  url = {https://epubs.siam.org/doi/book/10.1137/1.9780898718027},
+  resource_topic = {floating-point-arithmetic},
+  reading_order = {2}
+}
+
+@book{muller2018handbook,
+  author = {Muller, Jean-Michel and Brunie, Nicolas and de Dinechin, Florent and Jeannerod, Claude-Pierre and Joldes, Mioara and Lefèvre, Vincent and Melquiond, Guillaume and Revol, Nathalie and Torres, Serge},
+  title = {Handbook of Floating-Point Arithmetic},
+  edition = {2},
+  publisher = {Birkhäuser},
+  year = {2018},
+  doi = {10.1007/978-3-319-76526-6},
+  url = {https://link.springer.com/book/10.1007/978-3-319-76526-6},
+  resource_topic = {floating-point-arithmetic},
+  reading_order = {3}
+}
+
+@techreport{ieee7542019,
+  author = {{IEEE}},
+  title = {{IEEE} Standard for Floating-Point Arithmetic},
+  institution = {IEEE},
+  number = {754-2019},
+  year = {2019},
+  url = {https://standards.ieee.org/ieee/754/6210/},
+  resource_topic = {floating-point-arithmetic},
+  reading_order = {4}
+}
+
+% Interval arithmetic literature
+
+@book{moore2009interval,
+  author = {Moore, Ramon E. and Kearfott, R. Baker and Cloud, Michael J.},
+  title = {Introduction to Interval Analysis},
+  publisher = {Society for Industrial and Applied Mathematics},
+  year = {2009},
+  doi = {10.1137/1.9780898717716},
+  url = {https://epubs.siam.org/doi/book/10.1137/1.9780898717716},
+  resource_topic = {interval-arithmetic},
+  reading_order = {1}
+}
+
+@book{neumaier1991interval,
+  author = {Neumaier, Arnold},
+  title = {Interval Methods for Systems of Equations},
+  publisher = {Cambridge University Press},
+  year = {1991},
+  doi = {10.1017/CBO9780511526473},
+  url = {https://www.cambridge.org/core/books/interval-methods-for-systems-of-equations/1BC3BDF16A2F4EC44EAFAD75051733DA},
+  resource_topic = {interval-arithmetic},
+  reading_order = {2}
+}
+
+@techreport{ieee17882015,
+  author = {{IEEE}},
+  title = {{IEEE} Standard for Interval Arithmetic},
+  institution = {IEEE},
+  number = {1788-2015},
+  year = {2015},
+  url = {https://standards.ieee.org/ieee/1788/4431/},
+  resource_topic = {interval-arithmetic},
+  reading_order = {3}
+}
+
+@book{kulisch2013validity,
+  author = {Kulisch, Ulrich},
+  title = {Computer Arithmetic and Validity},
+  publisher = {De Gruyter},
+  year = {2013},
+  doi = {10.1515/9783110301793},
+  url = {https://www.degruyterbrill.com/document/doi/10.1515/9783110301793/html},
+  resource_topic = {interval-arithmetic},
+  reading_order = {4}
+}
+
+% Vectorization literature
+
+@article{flynn1972organizations,
+  author = {Flynn, Michael J.},
+  title = {Some Computer Organizations and Their Effectiveness},
+  journal = {IEEE Transactions on Computers},
+  volume = {C-21},
+  number = {9},
+  pages = {948--960},
+  year = {1972},
+  doi = {10.1109/TC.1972.5009071},
+  url = {https://doi.org/10.1109/TC.1972.5009071},
+  resource_topic = {vectorization},
+  reading_order = {1}
+}
+
+@article{nuzman2006interleaved,
+  author = {Nuzman, Dorit and Rosen, Ira and Zaks, Ayal},
+  title = {Auto-vectorization of Interleaved Data for {SIMD}},
+  journal = {ACM SIGPLAN Notices},
+  year = {2006},
+  url = {https://research.ibm.com/publications/auto-vectorization-of-interleaved-data-for-simd},
+  resource_topic = {vectorization},
+  reading_order = {2}
+}
+
+@article{shibata2020sleef,
+  author = {Shibata, Naoki and Petrogalli, Francesco},
+  title = {{SLEEF}: A Portable Vectorized Library of {C} Standard Mathematical Functions},
+  journal = {arXiv preprint arXiv:2001.09258},
+  year = {2020},
+  url = {https://arxiv.org/abs/2001.09258},
+  resource_topic = {vectorization},
+  reading_order = {3}
+}
+
+% Starter example references (excluded from the Publications page)
+
+@article{gregor2015draw,
+  title = {{DRAW}: A Recurrent Neural Network for Image Generation},
+  author = {Gregor, Karol and Danihelka, Ivo and Graves, Alex and Rezende, Danilo Jimenez and Wierstra, Daan},
+  journal = {arXiv preprint, arXiv:1502.04623},
+  year = {2015},
+  url = {https://arxiv.org/pdf/1502.04623.pdf}
+}
+
+% Restored from the starter bibliography for the existing example project citations.
+@article{einstein1950meaning,
+  title = {The Meaning of Relativity},
+  author = {Einstein, Albert and Taub, AH},
+  journal = {American Journal of Physics},
+  volume = {18},
+  number = {6},
+  pages = {403--404},
+  year = {1950},
+  publisher = {American Association of Physics Teachers}
 }
 
 
