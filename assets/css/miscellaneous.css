@@ -25,7 +25,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  /* Frame the photo at the centre of each original phone screenshot. */
   object-fit: cover;
   object-position: center;
 }
