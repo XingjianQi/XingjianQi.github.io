@@ -1,24 +1,36 @@
 - country: Italy
   city: Rome
   image: /assets/img/mcdonalds/italy.png
+  width: 1206
+  height: 905
   alt: A McCrunchy Chicken meal with topped fries and a drink at McDonald's in Rome, Italy.
 - country: Germany
   city: Heidelberg
   image: /assets/img/mcdonalds/germany.png
+  width: 1206
+  height: 903
   alt: A purple-bun burger and fries at McDonald's in Heidelberg, Germany.
 - country: Spain
   city: Barcelona
   image: /assets/img/mcdonalds/spain.png
+  width: 1206
+  height: 903
   alt: A McExtreme burger meal with fries and a drink at McDonald's in Barcelona, Spain.
 - country: The Netherlands
   city: Amsterdam
   image: /assets/img/mcdonalds/netherlands.png
+  width: 1206
+  height: 1608
   alt: A McKroket and an ice cream cone at McDonald's in Amsterdam, the Netherlands.
 - country: France
   city: Paris
   image: /assets/img/mcdonalds/france.png
+  width: 1206
+  height: 905
   alt: Burgers, potato wedges, and a drink at McDonald's in Paris, France.
 - country: Singapore
   city: Singapore
   image: /assets/img/mcdonalds/singapore.png
+  width: 1206
+  height: 1608
   alt: A Sausage McMuffin, fried bites, and chilli sauce at McDonald's in Singapore.

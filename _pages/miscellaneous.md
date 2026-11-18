@@ -42,7 +42,7 @@ I'm a big foodie, so I always love trying the local specialities when I travel. 
     {% capture location %}{{ photo.city }}{% unless photo.city == photo.country %}, {{ photo.country }}{% endunless %}{% endcapture %}
     <figure class="mcdonalds-gallery__item">
       <a class="mcdonalds-gallery__window" href="{{ photo.image | relative_url }}" data-lightbox="mcdonalds-world" data-title="{{ location | escape }}" aria-label="View McDonald's in {{ location | escape }}">
-        <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt | escape }}" width="1206" height="2622" loading="lazy" decoding="async">
+        <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt | escape }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" decoding="async">
       </a>
       <figcaption>{{ location | escape }}</figcaption>
     </figure>
